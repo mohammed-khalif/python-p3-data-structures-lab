@@ -1,38 +1,32 @@
-spicy_foods = [
-    {
-        "name": "Green Curry",
-        "cuisine": "Thai",
-        "heat_level": 9,
-    },
-    {
-        "name": "Buffalo Wings",
-        "cuisine": "American",
-        "heat_level": 3,
-    },
-    {
-        "name": "Mapo Tofu",
-        "cuisine": "Sichuan",
-        "heat_level": 6,
-    },
-]
+# lib/list_crud.py
 
-def get_names(spicy_foods):
-    pass
+def create_an_empty_list():
+    return []
 
-def get_spiciest_foods(spicy_foods):
-    pass
+def create_a_list():
+    return [1, 2, 3, 4]
 
-def print_spicy_foods(spicy_foods):
-    pass
+def add_element_to_end_of_list(lst, element):
+    lst.append(element)
+    return lst
 
-def get_spicy_food_by_cuisine(spicy_foods, cuisine):
-    pass
+def add_element_to_start_of_list(lst, element):
+    lst.insert(0, element)
+    return lst
 
-def print_spiciest_foods(spicy_foods):
-    pass
+def remove_element_from_end_of_list(lst):
+    lst.pop()
+    return lst
 
-def get_average_heat_level(spicy_foods):
-    pass
+def remove_element_from_start_of_list(lst):
+    del lst[0]
+    return lst
 
-def create_spicy_food(spicy_foods, spicy_food):
-    pass
+def retrieve_first_element_from_list(lst):
+    return lst[0]
+
+def retrieve_element_from_index(lst, index):
+    return lst[index]
+
+def retrieve_last_element_from_list(lst):
+    return lst[-1]
