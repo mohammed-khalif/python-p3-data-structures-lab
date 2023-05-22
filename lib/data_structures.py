@@ -1,32 +1,55 @@
-# lib/list_crud.py
+spicy_foods = [
+    {
+        "name": "Green Curry",
+        "cuisine": "Thai",
+        "heat_level": 9,
+    },
+    {
+        "name": "Buffalo Wings",
+        "cuisine": "American",
+        "heat_level": 3,
+    },
+    {
+        "name": "Mapo Tofu",
+        "cuisine": "Sichuan",
+        "heat_level": 6,
+    },
+]
 
-def create_an_empty_list():
-    return []
+def get_names(spicy_foods):
+    return [food["name"] for food in spicy_foods]
+    
 
-def create_a_list():
-    return [1, 2, 3, 4]
+def get_spiciest_foods(spicy_foods):
+    return [food for food in spicy_foods if food["heat_level"] > 5]
 
-def add_element_to_end_of_list(lst, element):
-    lst.append(element)
-    return lst
 
-def add_element_to_start_of_list(lst, element):
-    lst.insert(0, element)
-    return lst
+def print_spicy_foods(spicy_foods):
+    for food in spicy_foods:
+        heat_level = "🌶" * food["heat_level"]
+        print(f"{food['name']} ({food['cuisine']}) | Heat Level: {heat_level}")
 
-def remove_element_from_end_of_list(lst):
-    lst.pop()
-    return lst
 
-def remove_element_from_start_of_list(lst):
-    del lst[0]
-    return lst
+def get_spicy_food_by_cuisine(spicy_foods, cuisine):
+    for food in spicy_foods:
+        if food["cuisine"].lower() == cuisine.lower():
+            return food
+    return None
 
-def retrieve_first_element_from_list(lst):
-    return lst[0]
 
-def retrieve_element_from_index(lst, index):
-    return lst[index]
+def print_spiciest_foods(spicy_foods):
+    spiciest_foods = get_spiciest_foods(spicy_foods)
+    print_spicy_foods(spiciest_foods)
 
-def retrieve_last_element_from_list(lst):
-    return lst[-1]
+
+def get_average_heat_level(spicy_foods):
+    total_heat_level = sum(food["heat_level"] for food in spicy_foods)
+    num_foods = len(spicy_foods)
+    average_heat_level = total_heat_level / num_foods if num_foods > 0 else 0
+    return int(average_heat_level)
+
+
+def create_spicy_food(spicy_foods, spicy_food):
+    new_spicy_foods = spicy_foods.copy()  # Create a copy of the original list
+    new_spicy_foods.append(spicy_food)
+    return new_spicy_foods
